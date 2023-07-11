@@ -1,0 +1,72 @@
+ /*WEB.END*/
+ *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    min-height: 100vh;
+}
+
+/*LOADER*/
+
+.container{
+    display: flex;
+}
+
+.container .circle{
+    position: relative;
+    margin: 0 -8px;
+    height: 150px;
+    width: 150px;
+}
+
+.container .circle:nth-child(2){
+    transform: rotate(-180deg);
+}
+
+.container .circle span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transform: rotate(calc(18deg * var(--lk)));
+}
+
+.container .circle span::before{
+    content: '';
+position: absolute;
+top: calc(50% - 8px);
+right: 0;
+height: 15px;
+width: 15px;
+background: #00ccff;
+border-radius:50% ;
+box-shadow: 0 0 10px #00ccff,0 0 20px #00ccff,0 0 40px #00ccff,0 0 60px #00ccff,0 0 80px #00ccff,0 0 100px #00ccff;
+transform: scale(0.1);
+animation: animate 4s linear infinite;
+animation-delay: calc(0.1s * var(--lk));
+}
+
+.container .circle:nth-child(2) span::before{
+animation-delay: calc(-0.1s * var(--lk));
+}
+
+
+@keyframes animate{
+
+0%{
+transform: scale(1);
+}
+
+50%,100%{
+transform: scale(0.1);
+}
+
+}
